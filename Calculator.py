@@ -1,6 +1,6 @@
 import tkinter as tk
 from FunKey import GetCoor, GetFun
-import Mode
+#import Mode
 # import numpy as np
 
 #widget
