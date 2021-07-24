@@ -17,7 +17,6 @@ e.grid(row = 0, column = 0, columnspan= 4)
 e.insert(0, "0")
 
 #Button Functions
-
 def Num(number):
     if e.get() == "0":
         e.delete(0, tk.END)
@@ -27,7 +26,8 @@ def Num(number):
         e.insert(0, str(number))
     
     else: e.insert(tk.END, str(number))
-    
+
+#Functioning of arithmetic operators
 def Fun(function):
     
     if function in ["+","-","×","÷"]:
@@ -54,11 +54,10 @@ def Fun(function):
     #     e.delete(0, tk.END)
     #     e.insert(0, )
 
-#Buttons
+#Buttons creation
 Button = {}
 Nums = list(range(0,10))
 Funs = ["+","-","×","÷","=",".","←","CE"]
-#Funs = ["+","-","×","÷","=","←","CE"]
 
 #Buttons declaration
 if True:
