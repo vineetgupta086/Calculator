@@ -32,4 +32,6 @@ def GetCoor(obj):
             row, col = 4, 3
         elif obj == "+":
             row, col = 5, 3
+        elif obj == "^":
+            row, col = 1, 1
     return row, col
