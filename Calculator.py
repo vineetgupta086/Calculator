@@ -21,7 +21,12 @@ e.insert(0, "0")
 #Functioning of arithmetic operators
 
 def Fun(function):
-    
+    """Reads the number and performs calculations
+
+    Args:
+        function (string): an operator (+,-,×,÷,^), "=", CE, ←
+    """
+
     #assigns operator
     if function in ["+","-","×","÷","^"]:
         global operation; operation = function
