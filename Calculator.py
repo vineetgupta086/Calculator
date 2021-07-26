@@ -13,13 +13,40 @@ root = tk.Tk()
 global MyFg; MyFg = "#ffffff"
 global MyBg; MyBg = "#000000"
 global MyBg2; MyBg2 = "#888888"
+global mode; mode = "Dark"
 
+def Dark():
+    global MyFg
+    global MyBg
+    global e
 
-#input
-e = tk.Entry(root, bd = 2, width = 30, fg = MyFg, bg = MyBg)
-e.grid(row = 0, column = 0, columnspan= 4)
-e.insert(0, "0")
+    MyFg, MyBg = MyBg, MyFg
+    mode = "Dark" if MyFg == "#ffffff" else "Light"
+    
+    CreateButtons(MyFg, MyBg)
+    ShowButtons()
+    
+    CreateDarkButton(MyFg, mode)
 
+    CreateInput(MyFg, MyBg)
+    # e = tk.Entry(root, bd = 2, width = 30, fg = MyFg, bg = MyBg)
+    # e.grid(row = 0, column = 0, columnspan= 4)
+    # e.insert(0, "0")
+
+#create dark button
+def CreateDarkButton(MyFg, mode):
+    DarkButton = tk.Button(root, text = mode, fg = MyFg, bg = MyBg2, padx = 12, pady = 8, command = Dark)
+    DarkButton.grid(row = 1, column = 0)
+CreateDarkButton(MyFg, mode)
+
+#create textbox
+def CreateInput(MyFg, MyBg):
+    global e
+    
+    e = tk.Entry(root, bd = 2, width = 30, fg = MyFg, bg = MyBg)
+    e.grid(row = 0, column = 0, columnspan= 4)
+    e.insert(0, "0")
+CreateInput(MyFg, MyBg)
 
 #Functioning of arithmetic operators
 def Fun(function):
@@ -98,8 +125,9 @@ Button = {}
 Nums = list(range(0,10))
 Funs = ["+","-","×","÷","^","=",".","←","CE"]
 
+
 #Buttons declaration
-if True:
+def CreateButtons(MyFg, MyBg):
     Button[0] = tk.Button(root, text = 0, fg = MyFg, bg = MyBg, padx = 20, pady = 15, command = lambda: Num(0))
     Button["."] = tk.Button(root, text = ".", fg = MyFg, bg = MyBg, padx = 20, pady = 15, command = lambda: Num("."))#, state= tk.DISABLED)
 
@@ -124,11 +152,14 @@ if True:
     Button["="] = tk.Button(root, text = "=", fg = MyFg, bg = MyBg2, padx = 20, pady = 15, command = lambda: Fun("="))
     Button["←"] = tk.Button(root, text = "←", fg = MyFg, bg = MyBg2, padx = 18, pady = 8, command = lambda: Fun("←"))
     Button["CE"] = tk.Button(root, text = "CE", fg = MyFg, bg = MyBg2, padx = 18, pady = 8, command = lambda: Fun("CE"))
+CreateButtons(MyFg, MyBg)
 
 #Buttons in grid
-for i in Nums + Funs:
-    
-    iRow, iCol = GetCoor(obj = i)
-    Button[i].grid(row = iRow, column = iCol)
+def ShowButtons():
+    for i in Nums + Funs:
+
+        iRow, iCol = GetCoor(obj = i)
+        Button[i].grid(row = iRow, column = iCol)
+ShowButtons()
 
 root.mainloop()
