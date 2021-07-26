@@ -6,6 +6,7 @@ from FunKey import GetCoor
 
 #widget
 root = tk.Tk()
+#root.geometry("400x200")
 
 #light/dark mode
 global MyFg; MyFg = "#ffffff"
@@ -20,9 +21,7 @@ e.insert(0, "0")
 #Functioning of arithmetic operators
 
 def Fun(function):
-    #global LastFun; LastFun = function
-    #global operation; operation = False
-
+    
     #assigns operator
     if function in ["+","-","×","÷","^"]:
         global operation; operation = function
@@ -49,22 +48,21 @@ def Fun(function):
                 e.insert(0, Num1**Num2)
 
         except NameError as Err:
-            e.insert(0, e.get())
+            #pass
+            temp = e.get()
+            e.delete(0, tk.END)
+            e.insert(0, temp)
 
     #clears everything
     if function == "CE":
         e.delete(0, tk.END)
+        operation = ""
 
     #backspace
     if function == "←":
         temp = e.get()
         e.delete(0, tk.END)
         e.insert(0, temp[0:-1])
-    
-    # if function == "←":
-    #     temp = e.get()
-    #     e.delete(0, tk.END)
-    #     e.insert(0, )
 
 #Insert numbers
 def Num(number):
