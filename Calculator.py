@@ -1,25 +1,27 @@
 import tkinter as tk
 from tkinter.constants import CURRENT, DISABLED
 from FunKey import GetCoor
-#import Mode
+# import Mode
 # import numpy as np
 
-#widget
+#master widget
 root = tk.Tk()
 #root.geometry("400x200")
+
 
 #light/dark mode
 global MyFg; MyFg = "#ffffff"
 global MyBg; MyBg = "#000000"
 global MyBg2; MyBg2 = "#888888"
 
+
 #input
 e = tk.Entry(root, bd = 2, width = 30, fg = MyFg, bg = MyBg)
 e.grid(row = 0, column = 0, columnspan= 4)
 e.insert(0, "0")
 
-#Functioning of arithmetic operators
 
+#Functioning of arithmetic operators
 def Fun(function):
     """Reads the number and performs calculations
 
@@ -117,11 +119,11 @@ if True:
     Button["-"] = tk.Button(root, text = "-", fg = MyFg, bg = MyBg2, padx = 20, pady = 15, command = lambda: Fun("-"))
     Button["×"] = tk.Button(root, text = "×", fg = MyFg, bg = MyBg2, padx = 20, pady = 15, command = lambda: Fun("×"))
     Button["÷"] = tk.Button(root, text = "÷", fg = MyFg, bg = MyBg2, padx = 20, pady = 15, command = lambda: Fun("÷"))
-    Button["^"] = tk.Button(root, text = "^", fg = MyFg, bg = MyBg2, padx = 20, pady = 8, command = lambda: Fun("^"))
+    Button["^"] = tk.Button(root, text = "^", fg = MyFg, bg = MyBg2, padx = 18, pady = 8, command = lambda: Fun("^"))
     
     Button["="] = tk.Button(root, text = "=", fg = MyFg, bg = MyBg2, padx = 20, pady = 15, command = lambda: Fun("="))
-    Button["←"] = tk.Button(root, text = "←", fg = MyFg, bg = MyBg2, padx = 20, pady = 8, command = lambda: Fun("←"))
-    Button["CE"] = tk.Button(root, text = "CE", fg = MyFg, bg = MyBg2, padx = 20, pady = 8, command = lambda: Fun("CE"))
+    Button["←"] = tk.Button(root, text = "←", fg = MyFg, bg = MyBg2, padx = 18, pady = 8, command = lambda: Fun("←"))
+    Button["CE"] = tk.Button(root, text = "CE", fg = MyFg, bg = MyBg2, padx = 18, pady = 8, command = lambda: Fun("CE"))
 
 #Buttons in grid
 for i in Nums + Funs:
