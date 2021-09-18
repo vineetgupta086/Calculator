@@ -1,13 +1,11 @@
 import tkinter as tk
 from tkinter.constants import CURRENT, DISABLED
 from FunKey import GetCoor
-# import Mode
-# import numpy as np
 
 #master widget
 root = tk.Tk()
-#root.geometry("400x200")
-
+root.title("MyCalculator")
+root.iconbitmap("Icon1.ico")
 
 #light/dark mode
 global MyFg; MyFg = "#ffffff"
@@ -29,9 +27,6 @@ def Dark():
     CreateDarkButton(MyFg, mode)
 
     CreateInput(MyFg, MyBg)
-    # e = tk.Entry(root, bd = 2, width = 30, fg = MyFg, bg = MyBg)
-    # e.grid(row = 0, column = 0, columnspan= 4)
-    # e.insert(0, "0")
 
 #create dark button
 def CreateDarkButton(MyFg, mode):
